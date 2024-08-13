@@ -10,6 +10,15 @@
     - Sign Up Form
     - Form Validation
     - useRef Hook
+    - Firebase Setup
+    - Deploying our app to production
+    - Create Sign Up user account
+    - Implement Sign in User
+    - Created Redux Store with UserSlice
+    - Sign Out
+    - updated Profile
+    - Redirect App
+    - Fetch Movies from TMDB API
 
 
 # Features
