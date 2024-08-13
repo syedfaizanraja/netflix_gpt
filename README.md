@@ -5,8 +5,11 @@
     - Configure TailwindCSS
     - Configure GitHub
     - Header 
+    - Routing of App
     - LoginIn Form
     - Sign Up Form
+    - Form Validation
+    - useRef Hook
 
 
 # Features
