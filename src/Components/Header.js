@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { Netflix_logo, user_Avatar } from "../Utils/constants";
 const Header = () => {
+  
   const navigate = useNavigate();
-
   const user = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const Header = () => {
   };
 
   return (
-    <div className=" flex justify-between absolute w-screen px-8 py-4 bg-gradient-to-b from-black  z-10  opacity-90">
+    <div className=" flex justify-between absolute w-screen px-8 py-4 bg-gradient-to-r from-black  z-10 opacity-75">
       <img
         className=" w-44  "
         src={Netflix_logo}

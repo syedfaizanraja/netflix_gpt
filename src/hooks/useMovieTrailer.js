@@ -10,7 +10,7 @@ const useMovieTrailer = ({movieId}) => {
     //Fetch trailer Video and updating the store with trailer Video
   const getMovieVideos = async () => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/533535/videos",
+      "https://api.themoviedb.org/3/movie/1022789/videos",
       API_OPTIONS
     );
     const json = await data.json();
