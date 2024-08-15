@@ -30,7 +30,16 @@
     - fetch data for Trailer Video
     - update store with trailer video
     - Embedded youtube video and make it autoplay
-    - Fetch Movies from TMDB API
+    - Build Secondary Container
+    - Build Movie List
+    - Build Movie Card
+    - TMDB Image CDN URL
+    - Fetch popular movies
+    - Store popular movies in usePopularMovies 
+    - GPT Search page
+    - GPT search bar
+    - Multi-Language feature in our App for GPT search page
+    
 
 
 # Features

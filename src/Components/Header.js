@@ -4,12 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../Utils/userSlice";
-import { Netflix_logo, user_Avatar } from "../Utils/constants";
+import {
+  Netflix_logo,
+  SUPPORTED_LANGUAGES,
+  user_Avatar,
+} from "../Utils/constants";
+import { toggleGptSearchView } from "../Utils/gptSlice";
+import { changeLanguage } from "../Utils/configSlice";
+
 const Header = () => {
-  
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +24,7 @@ const Header = () => {
         // User is signed in
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse")
+        navigate("/browse");
       } else {
         // User is signed out
         dispatch(removeUser());
@@ -33,7 +39,6 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        
       })
       .catch((error) => {
         // An error happened.
@@ -41,20 +46,38 @@ const Header = () => {
       });
   };
 
+  const handleGptSearchClick = () => {
+    //Toggle Gpt Search
+    dispatch(toggleGptSearchView());
+  };
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
-    <div className=" flex justify-between absolute w-screen px-8 py-4 bg-gradient-to-r from-black  z-10 opacity-75">
-      <img
-        className=" w-44  "
-        src={Netflix_logo}
-        alt="logo"
-      ></img>
+    <div className=" flex justify-between absolute w-screen px-8 py-3 bg-gradient-to-r from-black  z-10 opacity-75">
+      <img className=" w-44  " src={Netflix_logo} alt="logo"></img>
       {user && (
         <div className="flex p-3 m-2 ">
-          <img
-            className=" w-12 h-12 "
-            alt="usericon"
-            src={ user_Avatar}
-          ></img>
+          {showGptSearch && (
+            <select
+              className="p-2 bg-gray-900 m-2 text-white"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <button
+            className=" py-2 text-black px-4 my-2 mx-4 bg-white rounded-lg hover:opacity-55"
+            onClick={handleGptSearchClick}
+          >
+            {showGptSearch ? "Home" : "GPT Search"}
+          </button>
+          <img className=" w-12 h-12 " alt="usericon" src={user_Avatar}></img>
           <button
             className=" mx-3 font-bold text-1xl text-white"
             onClick={handleSignOut}
