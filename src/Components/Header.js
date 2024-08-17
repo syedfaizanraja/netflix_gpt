@@ -55,7 +55,7 @@ const Header = () => {
   };
 
   return (
-    <div className=" flex justify-between absolute w-screen px-8 py-3 bg-gradient-to-r from-black  z-10 opacity-75">
+    <div className=" flex justify-between absolute w-screen px-8 py-3 bg-gradient-to-b from-black  z-10 opacity-75">
       <img className=" w-44  " src={Netflix_logo} alt="logo"></img>
       {user && (
         <div className="flex p-3 m-2 ">
@@ -72,7 +72,7 @@ const Header = () => {
             </select>
           )}
           <button
-            className=" py-2 text-black px-4 my-2 mx-4 bg-white rounded-lg hover:opacity-55"
+            className=" py-2 px-4 my-2 mx-4  bg-red-500 text-white rounded-lg hover:opacity-70"
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Home" : "GPT Search"}

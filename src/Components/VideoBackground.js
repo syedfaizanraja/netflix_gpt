@@ -11,7 +11,6 @@ const VideoBackground = ({ movieId }) => {
 
   
 
-   console.log(trailerVideo);
   return (
     <div>
     <div className='w-screen aspect-video no-scrollbar overflow-x-scroll '>
